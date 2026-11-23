@@ -26,13 +26,32 @@ public class Main implements QuarkusApplication{
 
         System.out.println("Hello Quarkus! ");
 
+        //create (insert)
+        
         Pedido p1 = new Pedido();
-
-        p1.setProducto("Prodcuto d eprueba");
+        p1.setProducto("Producto de prueba 2");
         p1.setPrecio(1.1);
         p1.setFecha(LocalDateTime.now());
 
         this.pedidoService.guaradar(p1);
+        
+
+        //read (buscar pedido por id)
+        Pedido pedido1 = this.pedidoService.buscarPorId(2);
+        System.out.println("Pedido encontrado: " + pedido1);
+
+        //update (actulizar)
+        pedido1.setPrecio(200.0);
+        this.pedidoService.actualizar(pedido1);
+
+        Pedido pedido2 = this.pedidoService.buscarPorId(2);
+        System.out.println("Pedido actualizado: " + pedido2);
+
+        //deleted (eliminar)
+        this.pedidoService.eliminar(2);
+
+
+
 
 
        return 0;
