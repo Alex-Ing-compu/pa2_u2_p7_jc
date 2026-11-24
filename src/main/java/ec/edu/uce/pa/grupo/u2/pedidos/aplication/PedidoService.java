@@ -1,5 +1,6 @@
 package ec.edu.uce.pa.grupo.u2.pedidos.aplication;
 
+import java.util.Optional;
 import java.util.stream.Gatherer.Integrator;
 
 import ec.edu.uce.pa.grupo.u2.pedidos.domain.model.Pedido;
@@ -19,8 +20,12 @@ public class PedidoService {
         this.pr.crear(pedido);
     }
     
-    public Pedido buscarPorId(Integer id){
+    public Optional<Pedido> buscarPorId(Integer id){
         return this.pr.read(id);
+    }
+
+     public Optional<Pedido> buscarPorNumero(String numero){
+        return this.pr.readByNumber(numero);
     }
 
     public void actualizar(Pedido pedido){

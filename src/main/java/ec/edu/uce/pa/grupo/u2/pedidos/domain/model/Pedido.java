@@ -30,9 +30,11 @@ public class Pedido {
     @Column(name = "pedd_fecha")
     private LocalDateTime fecha;
 
+    @Column(name = "pedd_numero")
+    private String numero;
+
     //getters and setters
 
-    
     public Integer getId() {
         return id;
     }
@@ -58,6 +60,12 @@ public class Pedido {
         this.fecha = fecha;
     }
 
+    public String getNumero() {
+        return numero;
+    }
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
     @Override
     public String toString() {
